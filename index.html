@@ -22,8 +22,15 @@
             News</a
           >
           <div class="d-flex">
-            <h5 class="me-4">News</h5>
-            <h5 class="ms-4">Blogs</h5>
+            <button type="button" class="btn me-4">News</button>
+            <button
+              type="button"
+              class="btn ms-4"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Blogs
+            </button>
           </div>
         </div>
       </nav>
@@ -33,7 +40,6 @@
     <!-- Main section star -->
     <main>
       <!-- category section start -->
-
       <section class="container">
         <nav class="navbar navbar-expand-lg bg-light">
           <div class="container-fluid">
@@ -59,7 +65,7 @@
       </section>
       <!-- category section End -->
       <!-- Category items number section start -->
-      <section id="items-counter" class="container bg-white border rounded p-2">
+      <section id="items-counter" class="container bg-white border rounded p-4">
         <h4 id="items-number">No News Items Found</h4>
       </section>
       <!-- Category items number section end-->
@@ -80,39 +86,241 @@
       </section>
 
       <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="newsTitleModal"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-center" id="newsTitleModal"></h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div id="modalBody" class="modal-body">
-              <div class="card"></div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
+      <section>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="newsTitleModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-center" id="newsTitleModal"></h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div id="modalBody" class="modal-body">
+                <div class="card"></div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Modal for blog -->
+      <section>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5
+                  class="modal-title text-center text-success"
+                  id="staticBackdropLabel"
+                >
+                  Javascript Related Four Important Question & Answer
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="accordion accordion-flush"
+                  id="accordionFlushExample"
+                >
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button
+                        class="accordion-button collapsed text-success fw-semibold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseOne"
+                      >
+                        1. What is var, let and const in javascript?
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseOne"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingOne"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        <span class="text-success fw-semibold">var:</span> It
+                        can be declared without initialization. <br />
+                        <span class="text-success fw-semibold">let:</span> It
+                        can be declared without initialization. <br />
+                        <span class="text-success fw-semibold">const:</span> It
+                        can not be declared without initialization.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button
+                        class="accordion-button collapsed text-success fw-semibold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseTwo"
+                      >
+                        2. What is the difference between regular function and
+                        arrow function?
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseTwo"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingTwo"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        Understanding the differences between regular and arrow
+                        functions helps choose the right syntax for specific
+                        needs. <br />
+                        <span class="text-success fw-semibold">a)</span> this
+                        value inside a regular function is dynamic and depends
+                        on the invocation. But this inside the arrow function is
+                        bound lexically and equals to this of the outer
+                        function. <br />
+                        <span class="text-success fw-semibold">b)</span>
+                        arguments object inside the regular functions contains
+                        the list of arguments. The arrow function, on the
+                        opposite, doesn't define arguments (but you can easily
+                        access the arrow function arguments using a rest
+                        parameter ...args). <br />
+                        <span class="text-success fw-semibold">c)</span>
+                        Examples: <br />
+                        <span class="text-success fw-semibold"
+                          >Regular function:</span
+                        >
+                        <br />
+                        const greet = function(who) { return `Hello, ${who}`; }
+                        <br />
+                        <span class="text-success fw-semibold"
+                          >Arrow function:</span
+                        >
+                        <br />
+                        const greet = (who) => { return `Hello, ${who}!`; }
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                      <button
+                        class="accordion-button collapsed text-success fw-semibold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseThree"
+                      >
+                        3. What is map(), forEach(), filter() and find()?
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseThree"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingThree"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        <span class="text-success fw-semibold">map():</span>
+                        map() creates a new array from calling a function for
+                        every array element. map() does not execute the function
+                        for empty elements & not change the original array.
+                        <br />
+                        <span class="text-success fw-semibold">forEach():</span>
+                        The forEach() method executes a provided function once
+                        for each array element. This method is not executed for
+                        empty elements. <br />
+                        <span class="text-success fw-semibold">filter():</span>
+                        The filter() method creates a new array filled with
+                        elements that pass a test provided by a function. This
+                        method does not execute the function for empty elements
+                        & not change the original array. <br />
+                        <span class="text-success fw-semibold">find():</span>
+                        The find() method returns the value of the first element
+                        that passes a test. This method executes a function for
+                        each array element. It returns undefined if no elements
+                        are found.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                      <button
+                        class="accordion-button collapsed text-success fw-semibold"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFour"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseFour"
+                      >
+                        4. What is template string?
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseFour"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingFour"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        Template strings are a powerful feature of modern
+                        JavaScript released in ES6. It lets us
+                        insert/interpolate variables and expressions into
+                        strings without needing to concatenate like in older
+                        versions of JavaScript. It allows us to create strings
+                        that are complex and contain dynamic elements.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- Main section End -->
 
@@ -122,6 +330,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/app.js"></script>
+    <script src="js/ques-ans.js"></script>
   </body>
 </html>
 
