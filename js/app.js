@@ -11,9 +11,9 @@ const displayCategory = (categories) =>{
     categories.forEach(category =>{
         const categoryLi = document.createElement('li');
         categoryLi.classList.add('nav-item');
-        categoryLi.classList.add('mx-4');
+        categoryLi.classList.add('mx-3');
         categoryLi.innerHTML = `
-            <p class="pe-auto" onclick="displayNews('${category.category_id}')"><a href='#' class='text-decoration-none text-black fw-semibold'>${category.category_name}</a></p>
+            <p class="btn btn-primary px-2 py-2 my-auto" onclick="displayNews('${category.category_id}')"><a href='#' class='text-white text-decoration-none text-black fw-semibold'>${category.category_name}</a></p>
         `;
         categoriesContainer.appendChild(categoryLi);
     })
@@ -38,6 +38,12 @@ const displayNews = async categoryId =>{
 const displayAllNews = allNews =>{
     const itemsNumber = document.getElementById('items-number');
     itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} News Items Found`;
+    const noData = document.getElementById('no-data');
+    if(allNews.length === 0){
+        noData.classList.add('d-block');
+    } else {
+        noData.classList.add('d-none');
+    }
     const allNewsContainer = document.getElementById('all-news-container');
     allNewsContainer.innerHTML = '';
     allNews.forEach(news => {
@@ -54,9 +60,12 @@ const displayAllNews = allNews =>{
                         <div class="card-body text-start">
                             <h4 class="card-title">${news.title ? news.title:'Title not found'}</h2>
                             <p class="card-text">${news.details ? news.details.slice(0, 150):'Description not found'}...</p>
-                            <div class="card-text d-flex justify-content-between pt-3">
-                                <h6> Author Name: ${news.author.name ? news.author.name:'Author name not found'}</h6>
-                                <p>View: ${news.total_view ? news.total_view:'View qty. not found'}</p>
+                            <div class="card-text d-flex justify-content-between pt-3 my-auto">
+                                <div class="d-inline-flex my-auto" style="width: 30%">
+                                    <img class="d-none d-sm-block img-thumbnail img-fluid rounded-circle me-2" style="width: 20%; height:20%" src="${news.author.img}">
+                                    <h6 class="my-auto">${news.author.name ? news.author.name:'Author name not found'}</h6>
+                                </div>
+                                <p class="my-auto">View: ${news.total_view ? news.total_view:'View quantity not found'}</p>
                                 <button class="btn bg-info text-white">Details</button>
                             </div>
                         </div>
@@ -93,7 +102,10 @@ const displayNewsModal = modalsId =>{
         <div class="card-body">
             <h5 class="card-title">${modalsId.title ? modalsId.title : 'News title not found'}</h5>
             <p class="card-text">${modalsId.details ? modalsId.details : 'News details not found'}</p>
-            <p class="card-text">Author name: ${modalsId.author.name ? modalsId.author.name : 'Author name not found'}</p>
+            <div>
+                <img class="img-thumbnail img-fluid rounded-circle" style="width: 10%; height:10%" src="${modalsId.author.img}">
+                <p class="card-text">Author name: ${modalsId.author.name ? modalsId.author.name : 'Author name not found'}</p>
+            </div>
             <p class="card-text">
                 <small class="text-muted">Updated ${modalsId.author.published_date ? modalsId.author.published_date:'Last updated not found'}</small>
             </p>
