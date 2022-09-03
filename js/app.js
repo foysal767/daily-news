@@ -1,4 +1,5 @@
 const loadData = () =>{
+    toggleSpinner(true);
     const url = 'https://openapi.programming-hero.com/api/news/categories';
     fetch(url)
     .then(res => res.json())
@@ -14,9 +15,10 @@ const displayCategory = (categories) =>{
         `;
         categoriesContainer.appendChild(categoryLi);
     })
-
+    toggleSpinner(false);
 }
 const displayNews = async categoryId =>{
+    toggleSpinner(true);
     // console.log(categoryId)
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     const res = await fetch(url);
@@ -24,12 +26,17 @@ const displayNews = async categoryId =>{
     displayAllNews(data.data);
 }
 const displayAllNews = allNews =>{
-    console.log(allNews.length);
+    console.log(allNews);
     const itemsNumber = document.getElementById('items-number');
-    itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} items found`;
+    itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} news found`;
     const allNewsContainer = document.getElementById('all-news-container');
     allNewsContainer.innerHTML = '';
     allNews.forEach(news => {
+        // if(news.total_view, news.total_view){
+        //     console.log(news.total_view > news.total_view)
+        // } else {
+        //     "No matching"
+        // }
         // console.log(news)
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
@@ -56,6 +63,7 @@ const displayAllNews = allNews =>{
         `;
         allNewsContainer.appendChild(newsDiv);
     })
+    toggleSpinner(false);
 }
 
 const newsModalId = async newsId =>{
@@ -67,7 +75,7 @@ const newsModalId = async newsId =>{
     
 }
 const displayNewsModal = modalsId =>{
-    console.log(modalsId)
+    // console.log(modalsId)
     const newsTitleModal = document.getElementById('newsTitleModal');
     newsTitleModal.innerHTML = '';
     // newsTitleModal.innerText = `${modalsId.title}`;
