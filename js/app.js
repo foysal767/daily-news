@@ -8,7 +8,6 @@ const loadData = () =>{
 const displayCategory = (categories) =>{
     const categoriesContainer = document.getElementById('categories-container');
     categories.forEach(category =>{
-        // console.log(category.category_id)
         const categoryLi = document.createElement('li');
         categoryLi.classList.add('nav-item');
         categoryLi.classList.add('mx-4');
@@ -21,7 +20,6 @@ const displayCategory = (categories) =>{
 }
 const displayNews = async categoryId =>{
     toggleSpinner(true);
-    // console.log(categoryId)
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -32,13 +30,11 @@ const displayNews = async categoryId =>{
     displayAllNews(sortNews);
 }
 const displayAllNews = allNews =>{
-    // console.log(allNews);
     const itemsNumber = document.getElementById('items-number');
     itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} News Items Found`;
     const allNewsContainer = document.getElementById('all-news-container');
     allNewsContainer.innerHTML = '';
     allNews.forEach(news => {
-        // console.log(news)
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
         newsDiv.classList.add('mb-3');
@@ -68,7 +64,6 @@ const displayAllNews = allNews =>{
 }
 
 const newsModalId = async newsId =>{
-    // console.log(newsId)
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -76,10 +71,8 @@ const newsModalId = async newsId =>{
     
 }
 const displayNewsModal = modalsId =>{
-    // console.log(modalsId)
     const newsTitleModal = document.getElementById('newsTitleModal');
     newsTitleModal.innerHTML = '';
-    // newsTitleModal.innerText = `${modalsId.title}`;
     const modalBody = document.getElementById('modalBody');
     modalBody.innerHTML = '';
     const modalDiv = document.createElement('div');
