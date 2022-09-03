@@ -23,20 +23,19 @@ const displayNews = async categoryId =>{
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     const res = await fetch(url);
     const data = await res.json();
-    displayAllNews(data.data);
+    const sortNews = data.data;
+    sortNews.sort((a, b) => {
+        return b.total_view - a.total_view
+    })
+    displayAllNews(sortNews);
 }
 const displayAllNews = allNews =>{
-    console.log(allNews);
+    // console.log(allNews);
     const itemsNumber = document.getElementById('items-number');
     itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} news found`;
     const allNewsContainer = document.getElementById('all-news-container');
     allNewsContainer.innerHTML = '';
     allNews.forEach(news => {
-        // if(news.total_view, news.total_view){
-        //     console.log(news.total_view > news.total_view)
-        // } else {
-        //     "No matching"
-        // }
         // console.log(news)
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
