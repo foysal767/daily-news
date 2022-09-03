@@ -10,6 +10,8 @@ const displayCategory = (categories) =>{
     categories.forEach(category =>{
         // console.log(category.category_id)
         const categoryLi = document.createElement('li');
+        categoryLi.classList.add('nav-item');
+        categoryLi.classList.add('mx-4');
         categoryLi.innerHTML = `
             <p class="pe-auto" onclick="displayNews('${category.category_id}')"><a href='#' class='text-decoration-none text-black fw-semibold'>${category.category_name}</a></p>
         `;
@@ -32,7 +34,7 @@ const displayNews = async categoryId =>{
 const displayAllNews = allNews =>{
     // console.log(allNews);
     const itemsNumber = document.getElementById('items-number');
-    itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} news found`;
+    itemsNumber.innerText = `${allNews.length ? allNews.length: 'No'} News Items Found`;
     const allNewsContainer = document.getElementById('all-news-container');
     allNewsContainer.innerHTML = '';
     allNews.forEach(news => {
@@ -42,11 +44,11 @@ const displayAllNews = allNews =>{
         newsDiv.classList.add('mb-3');
         newsDiv.innerHTML = `
             <div onclick="newsModalId('${news._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn row row-cols-1 row-cols-md-1 g-0">
-                <div class="d-flex">
-                    <div class="col-4">
+                <div class="d-md-flex">
+                    <div class="col-md-4">
                         <img src="${news.thumbnail_url}" class="img-fluid rounded-start p-4" alt="..." />
                     </div>
-                    <div class="col-8 my-auto">
+                    <div class="col-md-8 my-auto">
                         <div class="card-body text-start">
                             <h4 class="card-title">${news.title ? news.title:'Title not found'}</h2>
                             <p class="card-text">${news.details ? news.details.slice(0, 150):'Description not found'}...</p>

@@ -33,18 +33,34 @@
     <!-- Main section star -->
     <main>
       <!-- category section start -->
+
       <section class="container">
-        <nav>
-          <ul
-            id="categories-container"
-            class="list-items d-flex list-unstyled justify-content-between px-2"
-          ></ul>
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul
+                id="categories-container"
+                class="navbar-nav mx-auto mb-2 mb-lg-0 justify-content-between"
+              ></ul>
+            </div>
+          </div>
         </nav>
       </section>
       <!-- category section End -->
       <!-- Category items number section start -->
       <section id="items-counter" class="container bg-white border rounded p-2">
-        <h4 id="items-number">No news found</h4>
+        <h4 id="items-number">No News Items Found</h4>
       </section>
       <!-- Category items number section end-->
       <!-- News section start -->
@@ -108,3 +124,10 @@
     <script src="js/app.js"></script>
   </body>
 </html>
+
+<!-- <nav>
+  <ul
+    id="categories-container"
+    class="list-items d-flex list-unstyled justify-content-between px-2"
+  ></ul>
+</nav> -->
